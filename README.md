@@ -1,6 +1,6 @@
 # Individualized ERD
 
-This repository provides the code for an EEGLAB plugin to calculate individualized ERD (Event-Related Desynchronization).
+This repository provides the code for an EEGLAB (tested for EEGLAB v2023.1) plugin to calculate individualized ERD (Event-Related Desynchronization).
 
 ## Description
 When analysing EEG data, for a lot of research, we focus on alpha and beta frequency bands. These are usually analysed in a fixed band of 8 to 12 HZ and 13 to 30 Hz, respectively. Nevertheless, if we want to look at the Event-Related Desynchronization in these bands, since these change a lot according to individual and time, we thought of analysing these frequency features in an individual maner, and in an automatic way. For this reason, we developed this code.
