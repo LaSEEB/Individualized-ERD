@@ -5,7 +5,8 @@
 % Usage:
 %   >> pop_individual_erd(EEG); % pop up window asking users to select the
 %                                 inputs
-%   >> pop_individual_erd(EEG, 'key', 'val', ...); % does not pop up a window
+%   >> pop_individual_erd(EEG, electrode, frequency_band, wave_cycles); 
+%                                   % does not pop up a window
 %
 % Inputs:
 %  EEG - EEGLAB dataset
@@ -42,7 +43,7 @@
 %  'inidividual_erd'    - erd values across time, and frequency (in %).
 %  'times'              - vector of time values, correspondent to the erd 
 %                       matrix
-%  'individual_freq'    - frequency band chosen.
+%  'freq_range'         - frequency band chosen.
 %
 % Author: Madalena Valente
 %
@@ -53,8 +54,8 @@
 %                      'wave_cycles', 0); % does not pop up a window
 
 
-function [individual_erd, times, individual_freq] = pop_individual_erd(EEG,...
-   varargin)
+function [individual_erd, times, freq_range] = pop_individual_erd(EEG,...
+   electrode, frequency_band, wave_cycles)
 
 % if only one argument is provided, this means that the function is being
 % called from an EEGLAB menu
@@ -88,17 +89,17 @@ if nargin < 4
         'wave_cycles', 'callback', cb_wave_cycles } ...
       };
 
-      [~,~,~,outs] = inputgui( geometry, uilist, ...
-           'pophelp(''pop_individual_erd'')','title', 'Individual ERD');
+      [~,~,~,outs] = inputgui( 'geometry',geometry, 'uilist', uilist, ...
+           'helpcom', 'pophelp(''pop_individual_erd'')','title', 'Individual ERD');
 
       electrode = str2num(outs.electrode);
       frequency_band = str2num(outs.frequency_band);
       wave_cycles =  str2num(outs.wave_cycles);
       
-else
-    electrode = varargin{'electrode'};
-    frequency_band = varargin{'frequency_band'};
-    wave_cycles = varargin{'wave_cycles'};
+% else
+    % electrode = varargin{'electrode'};
+    % frequency_band = varargin{'frequency_band'};
+    % wave_cycles = varargin{'wave_cycles'};
 
 end
 

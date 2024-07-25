@@ -14,7 +14,7 @@
 
 function vers = eegplugin_individualerd(fig, try_strings, catch_strings)
 
-vers = 'iERD1.0'; % write the name of your plugin here and version
+vers = 'iERD1.0'; % name of your plugin and version
 if nargin < 3
     error('eegplugin_individualerd requires 3 arguments');
 end
